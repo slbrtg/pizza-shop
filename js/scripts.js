@@ -48,5 +48,19 @@ shoppingCart.prototype.finalPrice  = function(){
 
 //FRONT END
 $(document).ready(function() {
-
+  //pizza add to cart
+  $('#pizza-form').submit(function(){
+    event.preventDefault();
+    console.log("pizza");
+  });
+  //potato add to cart
+  $('#potato-form').submit(function(){
+    event.preventDefault();
+    console.log("potato");
+  });
+  //bevy add to cart
+  $('#bevy-form').submit(function(){
+    event.preventDefault();
+    console.log("bevy");
+  });
 });
