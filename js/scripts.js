@@ -32,22 +32,9 @@ function Potato(type,size,quantity){
 Potato.prototype = Object.create(Food.prototype);
 Potato.prototype.constructor = Potato;
 //Shopping cart that will hold and calculate the final total
-function shoppingCart(items){
-  this.items = items;
-  this.total = 0;
+function shoppingCart(pizza,bevy,potato){
+  this.total = pizza.price + bevy.price + potato.price;
 }
-
-
-//lines for testing
-// gooeyZa = new Pizza(2,8,1);
-// gooeyZa.calculatePrice();
-//
-// taterTots = new Potato(1,1,1);
-// taterTots.calculatePrice();
-
-
-
-
 
 
 
