@@ -32,8 +32,13 @@ function Potato(type,size,quantity){
 Potato.prototype = Object.create(Food.prototype);
 Potato.prototype.constructor = Potato;
 //Shopping cart that will hold and calculate the final total
-function shoppingCart(pizza,bevy,potato){
-  this.total = pizza.price + bevy.price + potato.price;
+function shoppingCart(){
+  this.items = [];
+}
+
+shoppingCart.prototype.finalPrice  = function(){
+  let total = 0;
+  for (let x = 0; x < this.items.length; x++){ total = this.items[x.price]; }
 }
 
 
