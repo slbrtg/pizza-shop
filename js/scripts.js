@@ -17,8 +17,11 @@ function Bevy(type,size,quantity){
   this.type = type;
   this.size = size;
   this.quantity = quantity;
-  this.toppings = 0;
   this.price = 0;
+}
+Bevy.prototype.bevyPrice = function (){
+  this.price = (this.type + this.size) * this.quantity;
+  console.log(this.price);
 }
 //Potato constructor
 function Potato(type,size,toppings,quantity){
@@ -28,14 +31,13 @@ function Potato(type,size,toppings,quantity){
   this.quantity = quantity;
   this.price = 0;
 }
+Potato.prototype.potatoPrice = function (){
+  this.price = (this.type + this.size + this.toppings) * this.quantity;
+  console.log(this.price);
+}
 //Shopping cart that will hold and calculate the final total
 function shoppingCart(){
-  this.items = [];
-}
-
-shoppingCart.prototype.finalPrice  = function(){
-  let total = 0;
-  for (let x = 0; x < this.items.length; x++){ total = this.items[x.price]; }
+  this.finalPrice = 0;
 }
 
 
@@ -45,47 +47,50 @@ shoppingCart.prototype.finalPrice  = function(){
 
 //FRONT END
 $(document).ready(function() {
+  //initialize shopping cart
+  newShoppingCart = new shoppingCart();
+
   //pizza add to cart
   $('#pizza-form').submit(function(){
     event.preventDefault();
 
     let pizzaSize = parseInt($('#pizza-form .form-size').val());
-    console.log(pizzaSize);
     let pizzaToppings = parseInt($('#pizza-form .form-toppings').val());
-    console.log(pizzaToppings);
     let pizzaQuantity = parseInt($('#pizza-form .form-quantity').val());
-    console.log(pizzaQuantity);
     let newPizza = new Pizza(pizzaSize,pizzaToppings,pizzaQuantity);
     newPizza.pizzaPrice();
+    newShoppingCart.finalPrice += newPizza.price;
 
   });
   //potato add to cart
   $('#potato-form').submit(function(){
     event.preventDefault();
 
-        let potatoType = $('#potato-form .form-type').val();
-        let potatoSize = $('#potato-form .form-size').val();
-        console.log(potatoSize);
-        let potatoToppings = $('#potato-form .form-toppings').val();
-        console.log(potatoToppings);
-        let potatoQuantity = $('#potato-form .form-quantity').val();
-        console.log(potatoQuantity);
+        let potatoType = parseInt($('#potato-form .form-type').val());
+        let potatoSize = parseInt($('#potato-form .form-size').val());
+        let potatoToppings = parseInt($('#potato-form .form-toppings').val());
+        let potatoQuantity = parseInt($('#potato-form .form-quantity').val());
         let newPotato = new Potato(potatoType,potatoSize,potatoToppings,potatoQuantity);
-        console.log(newPotato);
+        newPotato.potatoPrice();
+        newShoppingCart.finalPrice += newPotato.price;
 
   });
   //bevy add to cart
   $('#bevy-form').submit(function(){
     event.preventDefault();
 
-        let bevyType = $('#bevy-form .form-type').val();
-        console.log(bevyType);
-        let bevySize = $('#bevy-form .form-size').val();
-        console.log(bevySize);
-        let bevyQuantity = $('#bevy-form .form-quantity').val();
-        console.log(bevyQuantity);
+        let bevyType = parseInt($('#bevy-form .form-type').val());
+        let bevySize = parseInt($('#bevy-form .form-size').val());
+        let bevyQuantity = parseInt($('#bevy-form .form-quantity').val());
         let newBevy = new Bevy(bevyType,bevySize,bevyQuantity);
-        console.log(newBevy);
-
+        newBevy.bevyPrice();
+        newShoppingCart.finalPrice += newBevy.price;
   });
+  //Display final price
+  $('#order-button').click(function(){
+    event.preventDefault();
+    
+    console.log(newShoppingCart.finalPrice);
+  });
+
 });
