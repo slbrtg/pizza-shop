@@ -60,7 +60,7 @@ $(document).ready(function() {
     let newPizza = new Pizza(pizzaSize,pizzaToppings,pizzaQuantity);
     newPizza.pizzaPrice();
     newShoppingCart.finalPrice += newPizza.price;
-
+    $('#pizza-form button').text("Added to cart!");
   });
   //potato add to cart
   $('#potato-form').submit(function(){
@@ -73,7 +73,7 @@ $(document).ready(function() {
         let newPotato = new Potato(potatoType,potatoSize,potatoToppings,potatoQuantity);
         newPotato.potatoPrice();
         newShoppingCart.finalPrice += newPotato.price;
-
+        $('#potato-form button').text("Added to cart!");
   });
   //bevy add to cart
   $('#bevy-form').submit(function(){
@@ -85,6 +85,7 @@ $(document).ready(function() {
         let newBevy = new Bevy(bevyType,bevySize,bevyQuantity);
         newBevy.bevyPrice();
         newShoppingCart.finalPrice += newBevy.price;
+        $('#bevy-form button').text("Added to cart!");
   });
   //Display final price
   $('#order-button').click(function(){
@@ -92,7 +93,7 @@ $(document).ready(function() {
     $('.row').empty().append(
       "<div id='jumbotron'><h1>Your order is on the way!</h1>"+
       "<hr>"+
-      "<h3>Your total is " + newShoppingCart.finalPrice + "</h3>"
+      "<h3>Your total is " + newShoppingCart.finalPrice + " dollars :]</h3>"
     )
   });
 
