@@ -89,8 +89,7 @@ $(document).ready(function() {
   //Display final price
   $('#order-button').click(function(){
     event.preventDefault();
-    
-    console.log(newShoppingCart.finalPrice);
+
   });
 
 });

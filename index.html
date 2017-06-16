@@ -6,10 +6,22 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>PENTAGRAM PIZZA</title>
   </head>
-    <body>
-      <div class="container-fluid">
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active">            <button id="order-button"class="btn bt-lg btn-primary" type="button" name="button">Order Now!</button></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container" id="main-content">
+        <div class="jumbotron">
+          <h1>Pentagram Pizza</h1>
+        </div>
+        <img src="img/pizza.jpg" id="pizza-img" alt="">
         <div class="row">
           <div class="col-md-3">
             <form class="" id="pizza-form" action="index.html" method="post">
@@ -34,7 +46,7 @@
                    <option value="2">2</option>
                    <option value="3">3</option>
                  </select>
-                 <button class="btn bt-lg btn-primary"type="submit" name="button">Add to cart</button>
+                 <button class="btn bt-lg btn-primary add-to-order-button"type="submit" name="button">Add to cart</button>
             </form>
           </div>
           <div class="col-md-3">
@@ -66,7 +78,7 @@
                    <option value="2">2</option>
                    <option value="3">3</option>
                  </select>
-                  <button class="btn bt-lg btn-primary"type="submit" name="button">Add to cart</button>
+                  <button class="btn bt-lg btn-primary add-to-order-button"type="submit" name="button">Add to cart</button>
             </form>
           </div>
           <div class="col-md-3">
@@ -91,11 +103,11 @@
                    <option value="2">2</option>
                    <option value="3">3</option>
                  </select>
-                 <button class="btn bt-lg btn-primary"type="submit" name="button">Add to cart</button>
+                 <button class="btn bt-lg btn-primary add-to-order-button"type="submit" name="button">Add to cart</button>
             </form>
           </div>
-          <button id="order-button"class="btn bt-lg btn-primary" type="button" name="button">Order Now!</button>
         </div>
       </div>
-    </body>
+  </div>
+  </body>
 </html>

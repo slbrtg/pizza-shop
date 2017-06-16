@@ -22,3 +22,28 @@
 @media (max-width: 480px) {
 
 }
+
+.jumbotron {
+  text-align: center;
+  background-color: white;
+}
+
+#order-button {
+  margin-top: 8px;
+  margin-left: 1300px;
+  float: right;
+}
+
+#pizza-img {
+  height: 400px;
+  width: 600px;
+  margin-left: 250px;
+}
+
+.row {
+  margin-left: 150px;
+}
+
+.add-to-order-button {
+  margin-top: 10px;
+}
