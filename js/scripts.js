@@ -1,37 +1,33 @@
 //BACK END
 
-// //parent object
-// function Food(type,size,toppings,quantity){
-//   this.type = type;
-//   this.size = size;
-//   this.quantity = quantity;
-//   this.toppings = toppings;
-//   this.price = 0;
-// }
-// //parent object method to calculate the price of items
-// Food.prototype.calculatePrice = function(type,size,quantity){
-//   this.price = (this.type + this.size + this.toppings) * this.quantity;
-//   console.log(this.price);
-// }
-//pizza consturctor that inherits from Food
+
+//pizza consturctor
 function Pizza(size,toppings,quantity){
   this.size = size;
   this.toppings = toppings;
   this.quantity = quantity;
   this.price = 0;
 }
+Pizza.prototype.pizzaPrice = function(){
+  this.price = (this.size + this.toppings) * this.quantity;
+  console.log(this.price);
+}
 //Beverage constructor
 function Bevy(type,size,quantity){
   this.type = type;
   this.size = size;
   this.quantity = quantity;
+  this.toppings = 0;
+  this.price = 0;
 }
 //Potato constructor
-function Potato(type,size,quantity){
-  Food.call(this, type,size,quantity);
+function Potato(type,size,toppings,quantity){
+  this.type = type;
+  this.size = size;
+  this.toppings = toppings;
+  this.quantity = quantity;
+  this.price = 0;
 }
-Potato.prototype = Object.create(Food.prototype);
-Potato.prototype.constructor = Potato;
 //Shopping cart that will hold and calculate the final total
 function shoppingCart(){
   this.items = [];
@@ -53,27 +49,28 @@ $(document).ready(function() {
   $('#pizza-form').submit(function(){
     event.preventDefault();
 
-    let pizzaSize = $('#pizza-form .form-size').val();
+    let pizzaSize = parseInt($('#pizza-form .form-size').val());
     console.log(pizzaSize);
-    let pizzaToppings = $('#pizza-form .form-toppings').val();
+    let pizzaToppings = parseInt($('#pizza-form .form-toppings').val());
     console.log(pizzaToppings);
-    let pizzaQuantity = $('#pizza-form .form-quantity').val();
+    let pizzaQuantity = parseInt($('#pizza-form .form-quantity').val());
     console.log(pizzaQuantity);
-    let newPizza = new Pizza(0,pizzaSize,pizzaToppings,pizzaQuantity);
-    console.log(newPizza);
+    let newPizza = new Pizza(pizzaSize,pizzaToppings,pizzaQuantity);
+    newPizza.pizzaPrice();
 
   });
   //potato add to cart
   $('#potato-form').submit(function(){
     event.preventDefault();
 
+        let potatoType = $('#potato-form .form-type').val();
         let potatoSize = $('#potato-form .form-size').val();
         console.log(potatoSize);
         let potatoToppings = $('#potato-form .form-toppings').val();
         console.log(potatoToppings);
         let potatoQuantity = $('#potato-form .form-quantity').val();
         console.log(potatoQuantity);
-        let newPotato = new Potato(0,potatoSize,potatoToppings,potatoQuantity);
+        let newPotato = new Potato(potatoType,potatoSize,potatoToppings,potatoQuantity);
         console.log(newPotato);
 
   });
