@@ -54,10 +54,10 @@ $(document).ready(function() {
   $('#pizza-form').submit(function(){
     event.preventDefault();
 
-    let pizzaSize = parseInt($('#pizza-form .form-size').val());
-    let pizzaToppings = parseInt($('#pizza-form .form-toppings').val());
-    let pizzaQuantity = parseInt($('#pizza-form .form-quantity').val());
-    let newPizza = new Pizza(pizzaSize,pizzaToppings,pizzaQuantity);
+    const pizzaSize = parseInt($('#pizza-form .form-size').val());
+    const pizzaToppings = parseInt($('#pizza-form .form-toppings').val());
+    const pizzaQuantity = parseInt($('#pizza-form .form-quantity').val());
+    const newPizza = new Pizza(pizzaSize,pizzaToppings,pizzaQuantity);
     newPizza.pizzaPrice();
     newShoppingCart.finalPrice += newPizza.price;
     $('#pizza-form button').text("Added to cart!");
@@ -66,11 +66,11 @@ $(document).ready(function() {
   $('#potato-form').submit(function(){
     event.preventDefault();
 
-        let potatoType = parseInt($('#potato-form .form-type').val());
-        let potatoSize = parseInt($('#potato-form .form-size').val());
-        let potatoToppings = parseInt($('#potato-form .form-toppings').val());
-        let potatoQuantity = parseInt($('#potato-form .form-quantity').val());
-        let newPotato = new Potato(potatoType,potatoSize,potatoToppings,potatoQuantity);
+        const potatoType = parseInt($('#potato-form .form-type').val());
+        const potatoSize = parseInt($('#potato-form .form-size').val());
+        const potatoToppings = parseInt($('#potato-form .form-toppings').val());
+        const potatoQuantity = parseInt($('#potato-form .form-quantity').val());
+        const newPotato = new Potato(potatoType,potatoSize,potatoToppings,potatoQuantity);
         newPotato.potatoPrice();
         newShoppingCart.finalPrice += newPotato.price;
         $('#potato-form button').text("Added to cart!");
@@ -79,10 +79,10 @@ $(document).ready(function() {
   $('#bevy-form').submit(function(){
     event.preventDefault();
 
-        let bevyType = parseInt($('#bevy-form .form-type').val());
-        let bevySize = parseInt($('#bevy-form .form-size').val());
-        let bevyQuantity = parseInt($('#bevy-form .form-quantity').val());
-        let newBevy = new Bevy(bevyType,bevySize,bevyQuantity);
+        const bevyType = parseInt($('#bevy-form .form-type').val());
+        const bevySize = parseInt($('#bevy-form .form-size').val());
+        const bevyQuantity = parseInt($('#bevy-form .form-quantity').val());
+        const newBevy = new Bevy(bevyType,bevySize,bevyQuantity);
         newBevy.bevyPrice();
         newShoppingCart.finalPrice += newBevy.price;
         $('#bevy-form button').text("Added to cart!");
