@@ -89,7 +89,11 @@ $(document).ready(function() {
   //Display final price
   $('#order-button').click(function(){
     event.preventDefault();
-
+    $('.row').empty().append(
+      "<div id='jumbotron'><h1>Your order is on the way!</h1>"+
+      "<hr>"+
+      "<h3>Your total is " + newShoppingCart.finalPrice + "</h3>"
+    )
   });
 
 });
